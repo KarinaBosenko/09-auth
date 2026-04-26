@@ -1,4 +1,4 @@
-import { nextServer } from "./api";
+import nextServer from "./api";
 import type { Note, NoteTag } from "@/types/note";
 import { User } from "@/types/user";
 
@@ -7,11 +7,11 @@ interface FetchNotesResponse {
   totalPages: number;
 }
 
-export type CreateNote = {
+export interface CreateNote {
   title: string;
   content: string;
   tag: NoteTag;
-};
+}
 
 export type RegisterRequest = {
   email: string;
