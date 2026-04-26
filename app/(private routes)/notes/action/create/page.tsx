@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     title: "Create Note - NoteHub",
     description:
       "Create a new note in NoteHub. Add a title, content, and tag to organize your thoughts efficiently.",
-    url: "http://localhost:3000/notes/create",
+    url: "${process.env.NEXT_PUBLIC_SITE_URL}/notes/create",
     images: [
       {
         url: "https://ac.goit.global/fullstack/react/notehub-og-meta.jpg",

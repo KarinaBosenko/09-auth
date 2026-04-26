@@ -7,7 +7,7 @@ import NotesClient from "./Notes.client";
 import { NoteTag } from "@/types/note";
 
 import { Metadata } from "next";
-import { fetchNotes } from "@/lib/api";
+import { fetchNotes } from "@/lib/api/clientApi";
 
 interface NotesPagesProps {
   params: Promise<{ slug: string[] }>;
@@ -30,7 +30,7 @@ export async function generateMetadata({
       description: isAll
         ? "Browse all your notes in NoteHub."
         : `Browse notes filtered by ${tag} tag in NoteHub.`,
-      url: `http://localhost:3000/notes/filter/${tag}`,
+      url: `${process.env.NEXT_PUBLIC_SITE_URL}/notes/filter/${tag}`,
       images: [
         {
           url: "https://ac.goit.global/fullstack/react/notehub-og-meta.jpg",

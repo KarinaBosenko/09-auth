@@ -6,6 +6,7 @@ import TanStackProvider from "@/components/TanStackProvider/TanStackProvider";
 
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
+import AuthProvider from "@/components/AuthProvider/AuthProvider";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
     title: "NoteHub — Smart Note-Taking App",
     description:
       "NoteHub is a modern note-taking application for creating, organizing, and managing personal and work notes efficiently with fast search and filtering.",
-    url: "http://localhost:3000/",
+    url: process.env.NEXT_PUBLIC_SITE_URL,
     images: [
       {
         url: "https://ac.goit.global/fullstack/react/notehub-og-meta.jpg",
@@ -42,12 +43,14 @@ export default function RootLayout({
     <html lang="en">
       <body className={roboto.variable}>
         <TanStackProvider>
-          <Header />
-          <main>
-            {children}
-            {modal}
-          </main>
-          <Footer />
+          <AuthProvider>
+            <Header />
+            <main>
+              {children}
+              {modal}
+            </main>
+            <Footer />
+          </AuthProvider>
         </TanStackProvider>
       </body>
     </html>

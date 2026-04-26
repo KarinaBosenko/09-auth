@@ -11,7 +11,7 @@ import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import { useDebouncedCallback } from "use-debounce";
 import { Toaster } from "react-hot-toast";
 import { useState } from "react";
-import { fetchNotes } from "@/lib/api";
+import { fetchNotes } from "@/lib/api/clientApi";
 import { NoteTag } from "@/types/note";
 interface NotesClientProps {
   tag?: NoteTag;

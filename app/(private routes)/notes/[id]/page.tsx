@@ -4,7 +4,7 @@ import {
   dehydrate,
 } from "@tanstack/react-query";
 
-import { fetchNoteById } from "@/lib/api";
+import { fetchNoteById } from "@/lib/api/clientApi";
 import NoteDetailsClient from "./NoteDetails.client";
 import { Metadata } from "next";
 
@@ -23,7 +23,7 @@ export async function generateMetadata({
     openGraph: {
       title: `Note: ${note.title}`,
       description: note.content.slice(0, 100),
-      url: `http://localhost:3000/notes/${id}`,
+      url: `${process.env.NEXT_PUBLIC_SITE_URL}/notes/${id}`,
       images: [
         {
           url: "https://ac.goit.global/fullstack/react/notehub-og-meta.jpg",
